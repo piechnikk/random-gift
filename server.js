@@ -2,7 +2,7 @@ var express = require("express")
 var app = express()
 const PORT = process.env.PORT || 3000;
 
-var osoby = ["Paweł", "Klaudia", "Natka", "Klimcia", "Josh"]
+var osoby = ["Paweł", "Klaudia", "Natka"]
 var losowali = []
 var nieOk = false
 
@@ -18,28 +18,58 @@ for (let i = 0; i < osoby.length; i++) {
 html += '</select><br><br><button type="submit">Losuj!!!</button></form>'
 
 app.get("/", function (req, res) {
+    if (osoby.length == 0) {
+        html = '<style>*{font-family: DejaVu Sans Mono, monospace; color: white; font-size: 50px;} body{text-align: center; background-color: #333;}</style>Wszyscy już wylosowali!<br><img src="./gfx/1.gif">'
+    }
     res.send(html)
 })
 
 app.post("/wylosowano", function (req, res) {
-    nieOk = false
-    for (let i = 0; i < losowali.length; i++) {
-        if (losowali[i] == req.body.kto) {
-            nieOk = true
-            break
-        }
-    }
     var html = '<style>*{font-family: DejaVu Sans Mono, monospace; color: white; font-size: 50px;} body{text-align: center; background-color: #333;}</style>'
-    if (nieOk) {
-        html += 'Oj nie nie byczq losujemy tylko raz!!!'
+    if (osoby.length == 0) {
+        html += 'Wszyscy już wylosowali!<br><img src="./gfx/1.gif">'
     } else {
-        do {
-            var id = Math.floor(Math.random() * osoby.length)
-            console.log(osoby[id])
-        } while (req.body.kto == osoby[id])
-        html += 'Wylosowano:<br>' + osoby[id]
-        osoby.splice(id, 1)
-        losowali.push(req.body.kto)
+        nieOk = false
+        for (let i = 0; i < losowali.length; i++) {
+            if (losowali[i] == req.body.kto) {
+                nieOk = true
+                break
+            }
+        }
+        if (nieOk) {
+            html += 'Oj nie nie byczq, losujemy tylko raz!!!'
+        } else {
+            do {
+                var spr = false
+                var id = Math.floor(Math.random() * osoby.length)
+                console.log(osoby[id])
+
+                if (osoby.length == 2) {
+                    if (id == 0) {
+                        for (let i = 0; i < losowali.length; i++) {
+                            if (losowali[i] == osoby[1]) {
+                                spr = false
+                            }
+                            else {
+                                spr = true
+                            }
+                        }
+                    } else {
+                        for (let i = 0; i < losowali.length; i++) {
+                            if (losowali[i] == osoby[0]) {
+                                spr = false
+                            }
+                            else {
+                                spr = true
+                            }
+                        }
+                    }
+                }
+            } while (req.body.kto == osoby[id] || spr)
+            html += 'Wylosowano:<br>' + osoby[id]
+            osoby.splice(id, 1)
+            losowali.push(req.body.kto)
+        }
     }
     res.send(html)
 })
