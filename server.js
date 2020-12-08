@@ -2,7 +2,7 @@ var express = require("express")
 var app = express()
 const PORT = process.env.PORT || 3000;
 
-var osoby = ["Paweł", "Klaudia", "Natka"]
+var osoby = ["Klimcia","Natka", "Przemek", "Klaudia", "Paweł"]
 var losowali = []
 var nieOk = false
 
