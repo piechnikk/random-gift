@@ -4,6 +4,7 @@ const PORT = process.env.PORT || 3000;
 
 var osoby = ["Klimcia", "Natka", "Przemek", "Klaudia", "Paweł"]
 var doLosowania = ["Klimcia", "Natka", "Przemek", "Klaudia", "Paweł"]
+var losowali = []
 var nieOk = false
 
 var bodyParser = require("body-parser")
@@ -67,10 +68,12 @@ app.post("/wylosowano", function (req, res) {
                         }
                     }
                 }
+                console.log(osoby, doLosowania, id, spr)
             } while (req.body.kto == osoby[id] || spr)
             html += 'Wylosowano:<br>' + osoby[id]
             osoby.splice(id, 1)
             doLosowania.splice(doLosowania.indexOf(req.body.kto), 1)
+            losowali.push(req.body.kto)
         }
     }
     res.send(html)
