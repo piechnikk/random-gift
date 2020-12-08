@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 var path = require("path")
 
-var html = '<style>*{font-family: DejaVu Sans Mono, monospace; font-size: 50px;} body{text-align: center; color: white; background-color: #333;} form{margin-top: 30px;}</style>Wybierz kim jesteś i kliknij losuj<form action="/wylosowano" method="post"><select name="kto" size="' + osoby.length + '">'
+var html = '<link rel="icon" type="image/x-icon" href="./gfx/yyy.png"><style>*{font-family: DejaVu Sans Mono, monospace; font-size: 50px;} body{text-align: center; color: white; background-color: #333;} form{margin-top: 30px;}</style>Wybierz kim jesteś i kliknij losuj<form action="/wylosowano" method="post"><select name="kto" size="' + osoby.length + '">'
 for (let i = 0; i < osoby.length; i++) {
     html += '<option>' + osoby[i] + '</option>'
 }
@@ -25,7 +25,7 @@ app.get("/", function (req, res) {
 })
 
 app.post("/wylosowano", function (req, res) {
-    var html = '<style>*{font-family: DejaVu Sans Mono, monospace; color: white; font-size: 50px;} body{text-align: center; background-color: #333;}</style>'
+    var html = '<link rel="icon" type="image/x-icon" href="./gfx/yyy.png"><style>*{font-family: DejaVu Sans Mono, monospace; color: white; font-size: 50px;} body{text-align: center; background-color: #333;}</style>'
     if (osoby.length == 0) {
         html += 'Wszyscy już wylosowali!<br><img src="./gfx/1.gif">'
     } else {
