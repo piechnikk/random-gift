@@ -2,8 +2,8 @@ var express = require("express")
 var app = express()
 const PORT = process.env.PORT || 3000;
 
-var osoby = ["Klimcia","Natka", "Przemek", "Klaudia", "Paweł"]
-var losowali = []
+var osoby = ["Klimcia", "Natka", "Przemek", "Klaudia", "Paweł"]
+var doLosowania = ["Klimcia", "Natka", "Przemek", "Klaudia", "Paweł"]
 var nieOk = false
 
 var bodyParser = require("body-parser")
@@ -42,32 +42,36 @@ app.post("/wylosowano", function (req, res) {
             do {
                 var spr = false
                 var id = Math.floor(Math.random() * osoby.length)
-                console.log(osoby[id])
+
 
                 if (osoby.length == 2) {
                     if (id == 0) {
-                        for (let i = 0; i < losowali.length; i++) {
-                            if (losowali[i] == osoby[1]) {
-                                spr = false
+                        for (let i = 0; i < doLosowania.length; i++) {
+                            if (doLosowania[i] == osoby[1]) {
+                                spr = true
+                                break
                             }
                             else {
-                                spr = true
+                                spr = false
                             }
                         }
                     } else {
-                        for (let i = 0; i < losowali.length; i++) {
-                            if (losowali[i] == osoby[0]) {
-                                spr = false
+                        for (let i = 0; i < doLosowania.length; i++) {
+                            if (doLosowania[i] == osoby[0]) {
+                                spr = true
+                                break
                             }
                             else {
-                                spr = true
+                                spr = false
                             }
                         }
                     }
                 }
+                console.log(osoby, doLosowania, id, spr)
             } while (req.body.kto == osoby[id] || spr)
             html += 'Wylosowano:<br>' + osoby[id]
             osoby.splice(id, 1)
+            doLosowania.splice(doLosowania.indexOf(req.body.kto), 1)
             losowali.push(req.body.kto)
         }
     }
