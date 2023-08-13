@@ -42,19 +42,19 @@ Open your preferred web browser and navigate to `http://localhost:3000` to acces
 
 - Choose who you are
 
-  ![main page](https://github.com/piechnikk/random-gift/assets/51060535/6637a9d1-7ba4-4799-a1d7-5d5fb9591342)
+  ![main page](https://github.com/piechnikk/random-gift/assets/51060535/e56e5e26-6f98-4ae2-bd99-b8cf8025e163)
 
 - The person you have drawn
 
-  ![random person](https://github.com/piechnikk/random-gift/assets/51060535/3fb6e710-563f-4493-aa4d-aabb4ef37b35)
+  ![random person](https://github.com/piechnikk/random-gift/assets/51060535/71a6ee20-26b4-4023-b03d-c3cbc870118b)
 
 - You can only draw once
 
-  ![only one draw](https://github.com/piechnikk/random-gift/assets/51060535/389102ac-6546-4ee2-82de-a7c0587405b7)
+  ![only one draw](https://github.com/piechnikk/random-gift/assets/51060535/e07a9964-8f9c-434b-90c2-5b6a1015b6ed)
 
 - when everyone has drawn
 
-  ![all drawn](https://github.com/piechnikk/random-gift/assets/51060535/cf6f96a5-49ca-49cc-a8e2-90f85dfa1961)
+  ![all drawn](https://github.com/piechnikk/random-gift/assets/51060535/e0810937-a63c-4dc0-9486-018d25d2b8b1)
 
 
 ## Build With
