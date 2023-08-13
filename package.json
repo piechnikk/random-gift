@@ -1,5 +1,5 @@
 {
-  "name": "losowanko",
+  "name": "random-gift",
   "version": "1.0.0",
   "description": "szybkie losowanko prezentowe",
   "main": "server.js",
