@@ -15,7 +15,7 @@ This is a simple Node.js app built using JavaScript, Node.js and Express.js that
 
 Explore the [live demo](http://random-gift.piechnik.ct8.pl/) of the random-gift website.
 
-## Getting Started
+## Setup
 
 To get a copy of this project up and running on your local machine, follow these steps:
 
@@ -57,7 +57,7 @@ Open your preferred web browser and navigate to `http://localhost:3000` to acces
   ![all drawn](https://github.com/piechnikk/random-gift/assets/51060535/e0810937-a63c-4dc0-9486-018d25d2b8b1)
 
 
-## Build With
+## Technologies
 
 <div>
     <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" alt="JavaScript"> 
